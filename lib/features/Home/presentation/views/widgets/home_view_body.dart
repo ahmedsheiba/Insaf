@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:insaf/core/utils/app_colors.dart';
 import 'package:insaf/features/Home/presentation/views/widgets/categories_grid.dart';
 import 'package:insaf/features/Home/presentation/views/widgets/custom_appbar.dart';
 import 'package:insaf/features/Home/presentation/views/widgets/offer_widget.dart';
@@ -10,6 +11,7 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
       body: SingleChildScrollView(
         child: Column(
           children: [

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:insaf/core/utils/app_colors.dart';
+import 'package:insaf/features/Home/presentation/views/category_view.dart';
 
 class CategoriesSection extends StatelessWidget {
   final List<Map<String, dynamic>> categories = [
@@ -79,27 +80,38 @@ class CategoriesSection extends StatelessWidget {
             ),
             itemBuilder: (context, index) {
               final item = categories[index];
-              return Container(
-                width: 105.w,
-                height: 76.h,
-                decoration: BoxDecoration(
-                  color: item['color'],
-                  borderRadius: BorderRadius.circular(12.r),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(item['image'], width: 28.w, height: 28.h),
-                    SizedBox(height: 13.h),
-                    Text(
-                      item['title'],
-                      style: GoogleFonts.lato(
-                          fontSize: 12.sp,
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.arrowLeft),
-                      textAlign: TextAlign.center,
-                    )
-                  ],
+              return GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          CategoryPage(category: item['title']),
+                    ),
+                  );
+                },
+                child: Container(
+                  width: 105.w,
+                  height: 76.h,
+                  decoration: BoxDecoration(
+                    color: item['color'],
+                    borderRadius: BorderRadius.circular(12.r),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(item['image'], width: 28.w, height: 28.h),
+                      SizedBox(height: 13.h),
+                      Text(
+                        item['title'],
+                        style: GoogleFonts.lato(
+                            fontSize: 12.sp,
+                            fontWeight: FontWeight.w500,
+                            color: AppColors.arrowLeft),
+                        textAlign: TextAlign.center,
+                      )
+                    ],
+                  ),
                 ),
               );
             },
