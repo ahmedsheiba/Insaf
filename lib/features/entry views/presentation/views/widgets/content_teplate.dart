@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:insaf/features/entryViews/data/data.dart';
+import 'package:insaf/features/entry%20views/data/data.dart';
 import 'package:insaf/model/onboarding_model.dart';
 import 'package:insaf/core/utils/app_colors.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:insaf/features/search%20view/presentation/views/widgets/product_item.dart';
+import 'package:insaf/features/Home/presentation/views/widgets/categories_product_item.dart';
 
 class ProductsGridView extends StatelessWidget {
   const ProductsGridView({super.key});
@@ -19,7 +19,7 @@ class ProductsGridView extends StatelessWidget {
         crossAxisSpacing: 17,
       ),
       itemBuilder: (BuildContext context, int index) {
-        return const ProductItem(); // Ensure this is const
+        return const CategoriesProductItem(); // Ensure this is const
       },
     );
   }

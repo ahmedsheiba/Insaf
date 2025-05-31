@@ -38,6 +38,8 @@ class CategoriesSection extends StatelessWidget {
     },
   ];
 
+  CategoriesSection({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(

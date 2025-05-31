@@ -14,17 +14,17 @@ class CategoriesProductItem extends StatelessWidget {
       children: [
         Container(
           clipBehavior: Clip.antiAlias,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.all(
+            borderRadius: const BorderRadius.all(
               Radius.circular(8),
             ),
             boxShadow: [
               BoxShadow(
-                color: AppColors.cursor,
-                blurRadius: 1,
+                color: AppColors.arrowLeft.withOpacity(0.12),
+                blurRadius: 5,
                 spreadRadius: 0,
-                offset: Offset(0, 2),
+                offset: const Offset(0, 2),
               ),
             ],
           ),

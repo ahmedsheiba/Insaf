@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:insaf/core/utils/app_colors.dart';
 import 'package:insaf/core/utils/app_router.dart';
-import 'package:insaf/features/authViews/presentation/views/widgets/bottom_sheet.dart';
+import 'package:insaf/features/auth%20views/presentation/views/widgets/bottom_sheet.dart';
 import 'package:insaf/core/widgets/custom_button.dart';
 
 class WelcomeView extends StatelessWidget {

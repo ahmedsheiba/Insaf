@@ -97,7 +97,7 @@ class CategoryPage extends StatelessWidget {
                           width: 26.w,
                           height: 26.h,
                         ),
-                        SizedBox(width: 6),
+                        const SizedBox(width: 6),
                         Text(
                           item['label'],
                           style: GoogleFonts.rubik(
@@ -115,9 +115,9 @@ class CategoryPage extends StatelessWidget {
           SizedBox(height: 16.h),
           Expanded(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24.w),
+              padding: EdgeInsets.symmetric(horizontal: 20.w),
               child: GridView.builder(
-                padding: EdgeInsets.zero,
+                padding: EdgeInsets.symmetric(horizontal: 4.w),
                 physics: const BouncingScrollPhysics(),
                 itemCount: 12,
                 addAutomaticKeepAlives: true,
@@ -129,7 +129,7 @@ class CategoryPage extends StatelessWidget {
                   crossAxisSpacing: 17,
                 ),
                 itemBuilder: (BuildContext context, int index) {
-                  return CategoriesProductItem();
+                  return const CategoriesProductItem();
                 },
               ),
             ),

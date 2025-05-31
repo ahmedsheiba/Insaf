@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const Color primary = Color(0xff27AE60);
+  static const Color primary = Color.fromRGBO(39, 174, 96, 1);
   static const Color secondary = Color(0xff1F8A4B);
   static const Color whitePrimary = Color(0xffCDF4DD);
   static const Color white = Color(0xffffffff);
@@ -24,4 +24,6 @@ class AppColors {
   static const Color cat1 = Color(0xffFEF7FD);
   static const Color cat2 = Color(0xffFFF8F4);
   static const Color cat3 = Color(0xffF8FAFF);
+  static const Color appBarColor = Color.fromRGBO(59, 211, 122, 1);
+  static const Color completeContainerColor = Color(0xffCDF4DD);
 }

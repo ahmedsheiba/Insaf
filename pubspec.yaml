@@ -31,7 +31,10 @@ dependencies:
   iconify_flutter: ^0.0.7
   flutter_advanced_switch: ^3.1.0
   flutter_rating_stars: ^1.1.0
-
+  percent_indicator: ^4.2.5
+  iconly: ^1.0.1
+  font_awesome_flutter: ^10.8.0
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

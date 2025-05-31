@@ -3,9 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:insaf/core/utils/app_router.dart';
-import 'package:insaf/features/entryViews/data/data.dart';
+import 'package:insaf/features/entry%20views/data/data.dart';
 import 'package:insaf/core/utils/app_colors.dart';
-import 'package:insaf/features/entryViews/presentation/views/widgets/content_teplate.dart';
+import 'package:insaf/features/entry%20views/presentation/views/widgets/content_teplate.dart';
 
 class Onboarding extends StatefulWidget {
   const Onboarding({super.key});

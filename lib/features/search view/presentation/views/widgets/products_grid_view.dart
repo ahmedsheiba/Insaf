@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:insaf/features/search%20view/presentation/views/widgets/product_item.dart';
 
 class ProductsGridView extends StatelessWidget {
@@ -7,11 +8,11 @@ class ProductsGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      padding: EdgeInsets.zero,
+      padding: EdgeInsets.symmetric(
+        horizontal: 4.w,
+      ),
       physics: const BouncingScrollPhysics(),
       itemCount: 12,
-      addAutomaticKeepAlives: true, // Preserves state
-      cacheExtent: 500, // Pre-cache offscreen items
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         childAspectRatio: 0.6,
@@ -19,7 +20,7 @@ class ProductsGridView extends StatelessWidget {
         crossAxisSpacing: 17,
       ),
       itemBuilder: (BuildContext context, int index) {
-        return const ProductItem(); // Ensure this is const
+        return const ProductItem();
       },
     );
   }

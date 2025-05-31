@@ -62,7 +62,7 @@ class SuggestedSection extends StatelessWidget {
               crossAxisCount: 2,
               crossAxisSpacing: 17.w,
               mainAxisSpacing: 16.h,
-              childAspectRatio: 0.49.h,
+              childAspectRatio: 0.465.h,
             ),
             itemBuilder: (context, index) {
               final product = products[index];

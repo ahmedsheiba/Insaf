@@ -48,7 +48,7 @@ class OfferWidget extends StatelessWidget {
                   SizedBox(
                     height: 10.h,
                   ),
-                  const offerCustomButton(),
+                  const OfferCustomButton(),
                 ],
               ),
             ),

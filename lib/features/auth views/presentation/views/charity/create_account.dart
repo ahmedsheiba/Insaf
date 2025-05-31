@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:insaf/core/utils/app_colors.dart';
-import 'package:insaf/features/authViews/presentation/views/widgets/commercial_register.dart';
+import 'package:insaf/features/auth%20views/presentation/views/widgets/commercial_register.dart';
 import 'package:insaf/core/widgets/custom_button.dart';
-import 'package:insaf/features/authViews/presentation/views/widgets/custom_text_field.dart';
-import 'package:insaf/features/authViews/presentation/views/widgets/intl_phone_field.dart';
-import 'package:insaf/features/authViews/presentation/views/login_view.dart';
-import 'package:insaf/features/authViews/presentation/views/verify_email.dart';
+import 'package:insaf/features/auth%20views/presentation/views/widgets/custom_text_field.dart';
+import 'package:insaf/features/auth%20views/presentation/views/widgets/intl_phone_field.dart';
+import 'package:insaf/features/auth%20views/presentation/views/login_view.dart';
+import 'package:insaf/features/auth%20views/presentation/views/verify_email.dart';
 
 class CharityCreateAccountView extends StatefulWidget {
   const CharityCreateAccountView({super.key});
