@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:insaf/core/utils/app_colors.dart';
+import 'package:insaf/core/utils/app_router.dart';
 import 'package:insaf/features/Home/presentation/views/widgets/categories_product_item.dart';
 
 class CategoryPage extends StatelessWidget {
@@ -129,7 +131,12 @@ class CategoryPage extends StatelessWidget {
                   crossAxisSpacing: 17,
                 ),
                 itemBuilder: (BuildContext context, int index) {
-                  return const CategoriesProductItem();
+                  return GestureDetector(
+                      onTap: () {
+                        GoRouter.of(context)
+                            .push(AppRouter.kProductDetailsView);
+                      },
+                      child: const CategoriesProductItem());
                 },
               ),
             ),
