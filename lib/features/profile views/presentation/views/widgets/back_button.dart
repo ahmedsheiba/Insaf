@@ -7,11 +7,16 @@ class CustomBackButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CircleAvatar(
-      backgroundColor: Colors.white,
-      child: Icon(
-        LucideIcons.chevronLeft,
-        size: 20.sp,
+    return GestureDetector(
+      onTap: () {
+        Navigator.pop(context);
+      },
+      child: CircleAvatar(
+        backgroundColor: Colors.white,
+        child: Icon(
+          LucideIcons.chevronLeft,
+          size: 20.sp,
+        ),
       ),
     );
   }

@@ -26,4 +26,6 @@ class AppColors {
   static const Color cat3 = Color(0xffF8FAFF);
   static const Color appBarColor = Color.fromRGBO(59, 211, 122, 1);
   static const Color completeContainerColor = Color(0xffCDF4DD);
+  static const Color editPenColor = Color(0xff27AE60);
+  static const Color errorColor = Color(0xffE74C3C);
 }

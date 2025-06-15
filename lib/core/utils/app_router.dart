@@ -7,7 +7,12 @@ import 'package:insaf/features/auth%20views/presentation/views/welcome_view.dart
 import 'package:insaf/features/broduct%20details/presentation/views/broduct_details.dart';
 import 'package:insaf/features/entry%20views/presentation/views/onboarding.dart';
 import 'package:insaf/features/entry%20views/presentation/views/splash_view.dart';
+import 'package:insaf/features/profile%20views/presentation/views/delete_account_view.dart';
+import 'package:insaf/features/profile%20views/presentation/views/edit_profile_view.dart';
+import 'package:insaf/features/profile%20views/presentation/views/password_manager_view.dart';
 import 'package:insaf/features/profile%20views/presentation/views/profile_view.dart';
+import 'package:insaf/features/profile%20views/presentation/views/settings_view.dart';
+import 'package:insaf/features/profile%20views/presentation/views/notification_settings_view.dart';
 import 'package:insaf/features/search%20view/presentation/views/search_result_view.dart';
 import 'package:insaf/features/search%20view/presentation/views/search_view.dart';
 
@@ -22,6 +27,11 @@ abstract class AppRouter {
   static const kSearchResultView = '/SearchResultView';
   static const kProfileView = '/ProfileView';
   static const kProductDetailsView = '/ProductDetailsView';
+  static const kEditProfileView = '/EditProfileView';
+  static const kSettingsView = '/kSettingsView';
+  static const kNotificationSettingsView = '/kNotificationSettingsView';
+  static const kPasswordManagerView = '/kPasswordManagerView';
+  static const kDeleteAccountView = '/kDeleteAccountView';
 
   static final router = GoRouter(
     routes: [
@@ -68,6 +78,26 @@ abstract class AppRouter {
       GoRoute(
         path: kProductDetailsView,
         builder: (context, state) => const ProductDetailsView(),
+      ),
+      GoRoute(
+        path: kEditProfileView,
+        builder: (context, state) => const EditProfileView(),
+      ),
+      GoRoute(
+        path: kSettingsView,
+        builder: (context, state) => const SettingsView(),
+      ),
+      GoRoute(
+        path: kNotificationSettingsView,
+        builder: (context, state) => const NotificationSettingsView(),
+      ),
+      GoRoute(
+        path: kPasswordManagerView,
+        builder: (context, state) => const PasswordManagerView(),
+      ),
+      GoRoute(
+        path: kDeleteAccountView,
+        builder: (context, state) => const DeleteAccountView(),
       ),
     ],
   );

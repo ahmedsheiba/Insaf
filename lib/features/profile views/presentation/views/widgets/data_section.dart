@@ -76,11 +76,12 @@ class DataSection extends StatelessWidget {
               height: 16.h,
             ),
             Container(
-              padding: EdgeInsets.symmetric(
-                horizontal: 10.w,
-                vertical: 12.h,
+              padding: EdgeInsets.only(
+                left: 8.w,
+                top: 12.h,
+                bottom: 12.h,
               ),
-              height: 64.h,
+              height: 70.h,
               width: 291.w,
               decoration: BoxDecoration(
                 color: AppColors.completeContainerColor,
@@ -118,13 +119,13 @@ class DataSection extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(
                       left: 10.w,
-                      right: 7.w,
+                      right: 4.w,
                     ),
                     child: Text(
                       'Complete your \n profile to stand out',
                       style: GoogleFonts.lato(
                         color: AppColors.arrowLeft,
-                        fontSize: 12.sp,
+                        fontSize: 11.sp,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -132,9 +133,10 @@ class DataSection extends StatelessWidget {
                   ElevatedButton(
                     onPressed: () {},
                     style: ButtonStyle(
-                      backgroundColor: WidgetStateProperty.all(
-                        AppColors.primary,
-                      ),
+                      padding: const WidgetStatePropertyAll(EdgeInsets.zero),
+                      fixedSize: WidgetStateProperty.all(Size(110.w, 34.h)),
+                      backgroundColor:
+                          WidgetStateProperty.all(AppColors.primary),
                     ),
                     child: Text(
                       'Edit Profile',
