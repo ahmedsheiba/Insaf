@@ -114,7 +114,7 @@ class _LoginViewState extends State<LoginView> {
               ),
               CustomButton(
                 onTap: () {
-                  GoRouter.of(context).push(AppRouter.kHomeView);
+                  GoRouter.of(context).push(AppRouter.kMainView);
                 },
                 text: 'Log In',
                 color: AppColors.greenWithOpacity,

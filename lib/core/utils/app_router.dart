@@ -7,6 +7,7 @@ import 'package:insaf/features/auth%20views/presentation/views/welcome_view.dart
 import 'package:insaf/features/broduct%20details/presentation/views/broduct_details.dart';
 import 'package:insaf/features/entry%20views/presentation/views/onboarding.dart';
 import 'package:insaf/features/entry%20views/presentation/views/splash_view.dart';
+import 'package:insaf/features/main/presentation/view/main_view.dart';
 import 'package:insaf/features/profile%20views/presentation/views/delete_account_view.dart';
 import 'package:insaf/features/profile%20views/presentation/views/edit_profile_view.dart';
 import 'package:insaf/features/profile%20views/presentation/views/help_center_view.dart';
@@ -24,6 +25,7 @@ abstract class AppRouter {
   static const kLoginView = '/LoginView';
   static const kCharityCreateAccountView = '/CharityCreateAccountView';
   static const kSellerCreateAccountView = '/SellerCreateAccountView';
+  static const kMainView = '/kMainView';
   static const kHomeView = '/HomeView';
   static const kSearchView = '/SearchView';
   static const kSearchResultView = '/SearchResultView';
@@ -62,6 +64,10 @@ abstract class AppRouter {
       GoRoute(
         path: kSellerCreateAccountView,
         builder: (context, state) => const SellerCreateAccountView(),
+      ),
+      GoRoute(
+        path: kMainView,
+        builder: (context, state) => const MainView(),
       ),
       GoRoute(
         path: kHomeView,

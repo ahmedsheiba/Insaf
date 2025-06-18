@@ -24,7 +24,7 @@ class _HelpCenterViewBodyState extends State<HelpCenterViewBody> {
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(110.h),
+          preferredSize: Size.fromHeight(115.h),
           child: Padding(
             padding: EdgeInsets.only(
               top: 24.h,

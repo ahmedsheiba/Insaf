@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:insaf/core/utils/app_colors.dart';
+import 'package:insaf/core/utils/app_router.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class DataSection extends StatelessWidget {
@@ -131,7 +133,11 @@ class DataSection extends StatelessWidget {
                     ),
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      GoRouter.of(context).push(
+                        AppRouter.kEditProfileView,
+                      );
+                    },
                     style: ButtonStyle(
                       padding: const WidgetStatePropertyAll(EdgeInsets.zero),
                       fixedSize: WidgetStateProperty.all(Size(110.w, 34.h)),

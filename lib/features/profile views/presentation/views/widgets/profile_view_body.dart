@@ -9,7 +9,6 @@ import 'package:iconify_flutter/icons/prime.dart';
 import 'package:iconify_flutter/icons/uiw.dart';
 import 'package:insaf/core/utils/app_colors.dart';
 import 'package:insaf/core/utils/app_router.dart';
-import 'package:insaf/features/profile%20views/presentation/views/widgets/back_button.dart';
 import 'package:insaf/features/profile%20views/presentation/views/widgets/custom_profile_app_bar.dart';
 import 'package:insaf/features/profile%20views/presentation/views/widgets/data_section.dart';
 import 'package:insaf/features/profile%20views/presentation/views/widgets/profile_slices.dart';
@@ -29,9 +28,7 @@ class ProfileViewBody extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 45.h),
-                const CustomBackButton(),
-                SizedBox(height: 35.h),
+                SizedBox(height: 80.h),
                 const DataSection(),
                 SizedBox(height: 30.h),
                 ProfileSlices(
@@ -138,12 +135,15 @@ class ProfileViewBody extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 ElevatedButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
                                   style: ButtonStyle(
                                     padding: const WidgetStatePropertyAll(
                                         EdgeInsets.zero),
                                     fixedSize: WidgetStateProperty.all(
-                                        Size(164.w, 48.h)),
+                                      Size(164.w, 48.h),
+                                    ),
                                     backgroundColor: WidgetStateProperty.all(
                                       const Color(0xffE6F9EE),
                                     ),

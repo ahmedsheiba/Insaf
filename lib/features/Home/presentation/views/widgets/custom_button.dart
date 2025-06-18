@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:insaf/core/utils/app_colors.dart';
-import 'package:insaf/core/utils/app_router.dart';
 
 class OfferCustomButton extends StatelessWidget {
   const OfferCustomButton({super.key});
@@ -11,11 +9,7 @@ class OfferCustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        GoRouter.of(context).push(
-          AppRouter.kProfileView,
-        );
-      },
+      onTap: () {},
       child: Container(
         width: 90.w,
         height: 29.h,
