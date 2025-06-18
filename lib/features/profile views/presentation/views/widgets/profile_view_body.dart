@@ -61,20 +61,30 @@ class ProfileViewBody extends StatelessWidget {
                   title: 'Settings',
                 ),
                 SizedBox(height: 16.h),
-                const ProfileSlices(
-                  icon: Icon(
+                ProfileSlices(
+                  icon: const Icon(
                     LucideIcons.messageCircle,
                     color: AppColors.primary,
                   ),
                   title: 'Help Center',
+                  onTap: () {
+                    GoRouter.of(context).push(
+                      AppRouter.kHelpCenterView,
+                    );
+                  },
                 ),
                 SizedBox(height: 16.h),
-                const ProfileSlices(
-                  icon: Iconify(
+                ProfileSlices(
+                  icon: const Iconify(
                     Majesticons.shield_check_line,
                     color: AppColors.primary,
                   ),
                   title: 'Privacy Policy',
+                  onTap: () {
+                    GoRouter.of(context).push(
+                      AppRouter.kPrivacyPolicyView,
+                    );
+                  },
                 ),
                 SizedBox(height: 16.h),
                 ProfileSlices(

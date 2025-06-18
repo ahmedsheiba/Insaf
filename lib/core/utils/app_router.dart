@@ -9,6 +9,8 @@ import 'package:insaf/features/entry%20views/presentation/views/onboarding.dart'
 import 'package:insaf/features/entry%20views/presentation/views/splash_view.dart';
 import 'package:insaf/features/profile%20views/presentation/views/delete_account_view.dart';
 import 'package:insaf/features/profile%20views/presentation/views/edit_profile_view.dart';
+import 'package:insaf/features/profile%20views/presentation/views/help_center_view.dart';
+import 'package:insaf/features/profile%20views/presentation/views/privacy_policy_view.dart';
 import 'package:insaf/features/profile%20views/presentation/views/password_manager_view.dart';
 import 'package:insaf/features/profile%20views/presentation/views/profile_view.dart';
 import 'package:insaf/features/profile%20views/presentation/views/settings_view.dart';
@@ -32,6 +34,8 @@ abstract class AppRouter {
   static const kNotificationSettingsView = '/kNotificationSettingsView';
   static const kPasswordManagerView = '/kPasswordManagerView';
   static const kDeleteAccountView = '/kDeleteAccountView';
+  static const kPrivacyPolicyView = '/kPrivacyPolicyView';
+  static const kHelpCenterView = '/kHelpCenterView';
 
   static final router = GoRouter(
     routes: [
@@ -98,6 +102,14 @@ abstract class AppRouter {
       GoRoute(
         path: kDeleteAccountView,
         builder: (context, state) => const DeleteAccountView(),
+      ),
+      GoRoute(
+        path: kPrivacyPolicyView,
+        builder: (context, state) => const PrivacyPolicyView(),
+      ),
+      GoRoute(
+        path: kHelpCenterView,
+        builder: (context, state) => const HelpCenterView(),
       ),
     ],
   );

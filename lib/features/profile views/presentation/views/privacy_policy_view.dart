@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:insaf/features/profile%20views/presentation/views/widgets/edit_profile_view_body.dart';
+import 'package:insaf/features/profile%20views/presentation/views/widgets/privacy_policy_view_body.dart';
 
-class EditProfileView extends StatelessWidget {
-  const EditProfileView({super.key});
+class PrivacyPolicyView extends StatelessWidget {
+  const PrivacyPolicyView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class EditProfileView extends StatelessWidget {
           right: 24.w,
           top: 24.w,
         ),
-        child: const EditProfileViewBody(),
+        child: const PrivacyPloicyViewBody(),
       ),
     );
   }

@@ -8,6 +8,7 @@ class NotificationSettingsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(244, 244, 244, 1),
       body: Padding(
         padding: EdgeInsets.only(
           left: 24.w,

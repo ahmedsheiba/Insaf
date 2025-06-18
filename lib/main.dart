@@ -21,6 +21,6 @@ class Insaf extends StatelessWidget {
           debugShowCheckedModeBanner: false,
         );
       },
-    );
+    );  
   }
 }
