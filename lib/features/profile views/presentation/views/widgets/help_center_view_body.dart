@@ -22,7 +22,7 @@ class _HelpCenterViewBodyState extends State<HelpCenterViewBody> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(115.h),
           child: Padding(
