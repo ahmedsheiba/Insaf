@@ -5,9 +5,11 @@ import 'package:insaf/features/auth%20views/presentation/views/login_view.dart';
 import 'package:insaf/features/auth%20views/presentation/views/seller/create_account_seller.dart';
 import 'package:insaf/features/auth%20views/presentation/views/welcome_view.dart';
 import 'package:insaf/features/broduct%20details/presentation/views/broduct_details.dart';
+import 'package:insaf/features/cart/presentation/view/cart_view.dart';
 import 'package:insaf/features/entry%20views/presentation/views/onboarding.dart';
 import 'package:insaf/features/entry%20views/presentation/views/splash_view.dart';
 import 'package:insaf/features/main/presentation/view/main_view.dart';
+import 'package:insaf/features/payment/presentation/views/checkout_view.dart';
 import 'package:insaf/features/profile%20views/presentation/views/delete_account_view.dart';
 import 'package:insaf/features/profile%20views/presentation/views/edit_profile_view.dart';
 import 'package:insaf/features/profile%20views/presentation/views/help_center_view.dart';
@@ -38,7 +40,8 @@ abstract class AppRouter {
   static const kDeleteAccountView = '/kDeleteAccountView';
   static const kPrivacyPolicyView = '/kPrivacyPolicyView';
   static const kHelpCenterView = '/kHelpCenterView';
-
+  static const kCartView = '/kCartView';
+  static const kCheckoutView = '/kCheckoutView';
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -116,6 +119,14 @@ abstract class AppRouter {
       GoRoute(
         path: kHelpCenterView,
         builder: (context, state) => const HelpCenterView(),
+      ),
+      GoRoute(
+        path: kCartView,
+        builder: (context, state) => const CartView(),
+      ),
+      GoRoute(
+        path: kCheckoutView,
+        builder: (context, state) => const CheckoutView(),
       ),
     ],
   );
