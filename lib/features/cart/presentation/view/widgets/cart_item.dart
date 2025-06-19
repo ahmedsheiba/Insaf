@@ -7,8 +7,9 @@ import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:insaf/core/utils/app_colors.dart';
 
 class CartItem extends StatefulWidget {
-  const CartItem({super.key});
+  const CartItem({super.key, required this.onTap});
 
+  final void Function() onTap;
   @override
   State<CartItem> createState() => _CartItemState();
 }
@@ -95,12 +96,10 @@ class _CartItemState extends State<CartItem> {
                               }
                             });
                           },
-                          child: Container(
-                            child: Iconify(
-                              Lucide.minus,
-                              size: 14.sp,
-                              color: AppColors.checkBox,
-                            ),
+                          child: Iconify(
+                            Lucide.minus,
+                            size: 18.sp,
+                            color: AppColors.checkBox,
                           ),
                         ),
                         Padding(
@@ -128,12 +127,10 @@ class _CartItemState extends State<CartItem> {
                               cartItemCount++;
                             });
                           },
-                          child: Container(
-                            child: Iconify(
-                              Lucide.plus,
-                              size: 14.sp,
-                              color: AppColors.checkBox,
-                            ),
+                          child: Iconify(
+                            Lucide.plus,
+                            size: 18.sp,
+                            color: AppColors.checkBox,
                           ),
                         )
                       ],
@@ -142,9 +139,12 @@ class _CartItemState extends State<CartItem> {
                   SizedBox(
                     width: 60.w,
                   ),
-                  Iconify(
-                    Mdi.trash_outline,
-                    size: 24.sp,
+                  InkWell(
+                    onTap: widget.onTap,
+                    child: Iconify(
+                      Mdi.trash_outline,
+                      size: 24.sp,
+                    ),
                   ),
                 ],
               )

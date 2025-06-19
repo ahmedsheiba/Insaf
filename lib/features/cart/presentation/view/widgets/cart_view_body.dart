@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:insaf/core/utils/app_colors.dart';
 import 'package:insaf/core/utils/app_router.dart';
 import 'package:insaf/features/cart/presentation/view/widgets/cart_item.dart';
 import 'package:insaf/features/profile%20views/presentation/views/widgets/back_and_title_app_bar.dart';
+import 'package:lucide_icons/lucide_icons.dart';
 
 class CartViewBody extends StatelessWidget {
   const CartViewBody({super.key});
@@ -19,27 +22,88 @@ class CartViewBody extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 12.w),
             child: const BackAndTitleAppBar(title: 'Cart'),
           ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height,
+          SizedBox(height: 16.h),
+          Expanded(
             child: ListView.builder(
-              scrollDirection: Axis.vertical,
+              physics: const BouncingScrollPhysics(),
+              padding: EdgeInsets.only(bottom: 16.h),
               itemCount: 10,
               itemBuilder: (context, index) {
                 return Padding(
                   padding: EdgeInsets.only(bottom: 16.h),
-                  child: const CartItem(),
+                  child: CartItem(
+                    onTap: () {},
+                  ),
                 );
               },
             ),
           ),
-          ElevatedButton(
-            onPressed: () {
-              GoRouter.of(context).push(AppRouter.kCheckoutView);
-            },
-            child: const Text(
-              'Check Out',
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
+            child: ElevatedButton(
+              style: ButtonStyle(
+                minimumSize: WidgetStateProperty.all(
+                  Size(double.infinity, 52.h),
+                ),
+                shape: WidgetStateProperty.all(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.r),
+                  ),
+                ),
+                backgroundColor: const WidgetStatePropertyAll(
+                  AppColors.editPenColor,
+                ),
+              ),
+              onPressed: () {
+                GoRouter.of(context).push(AppRouter.kCheckoutView);
+              },
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 12.w),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          '4 Items',
+                          style: GoogleFonts.lato(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 11.sp,
+                            color: Colors.white,
+                          ),
+                        ),
+                        Text(
+                          'EGP 460',
+                          style: GoogleFonts.lato(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 12.sp,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Text(
+                      'Check Out',
+                      style: GoogleFonts.lato(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 16.sp,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Icon(
+                      LucideIcons.arrowRight,
+                      size: 24.sp,
+                      color: Colors.white,
+                    ),
+                  ],
+                ),
+              ),
             ),
           ),
+          SizedBox(height: 8.h),
         ],
       ),
     );
