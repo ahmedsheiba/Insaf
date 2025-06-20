@@ -19,9 +19,10 @@ class ProductDetailsViewBody extends StatelessWidget {
         title: Text(
           'Product Details',
           style: GoogleFonts.rubik(
-              color: AppColors.black,
-              fontSize: 24.sp,
-              fontWeight: FontWeight.w500),
+            color: AppColors.black,
+            fontSize: 24.sp,
+            fontWeight: FontWeight.w500,
+          ),
         ),
       ),
       body: SingleChildScrollView(

@@ -107,9 +107,10 @@ class CategoriesSection extends StatelessWidget {
                       Text(
                         item['title'],
                         style: GoogleFonts.lato(
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.w500,
-                            color: AppColors.arrowLeft),
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.w500,
+                          color: AppColors.arrowLeft,
+                        ),
                         textAlign: TextAlign.center,
                       )
                     ],

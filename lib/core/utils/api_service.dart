@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 class ApiService {
   ApiService(this._dio);
 
-  final _baseUrl = 'https://lightgreen-bear-560971.hostingersite.com/';
+  final _baseUrl = 'https://lightgreen-bear-560971.hostingersite.com/api/';
   final Dio _dio;
 
   Future<Map<String, dynamic>> get({required String endPoint}) async {

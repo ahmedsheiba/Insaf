@@ -7,11 +7,11 @@ class SurplusModel {
     required this.coverImage,
   });
 
-  final int id;
+  final num id;
   final String name;
   final String description;
-  final double price;
-  final String coverImage;
+  final num price;
+  final String? coverImage;
 
   // Convert to JSON
   Map<String, dynamic> toJson() {
@@ -27,11 +27,11 @@ class SurplusModel {
   // Factory constructor for creating a new SurplusModel from JSON
   factory SurplusModel.fromJson(Map<String, dynamic> json) {
     return SurplusModel(
-      id: json['id'] as int,
+      id: json['id'] as num,
       name: json['name'] as String,
       description: json['description'] as String,
-      price: json['price'] as double,
-      coverImage: json['coverImage'] as String,
+      price: json['price'] as num,
+      coverImage: json['coverImage'] as String?,
     );
   }
 
