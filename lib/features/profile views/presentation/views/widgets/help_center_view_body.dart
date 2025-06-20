@@ -15,7 +15,7 @@ class HelpCenterViewBody extends StatefulWidget {
 }
 
 class _HelpCenterViewBodyState extends State<HelpCenterViewBody> {
-  int selectedFaqCategory = 0; // Track selected FAQ category
+  int selectedFaqCategory = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -23,21 +23,18 @@ class _HelpCenterViewBodyState extends State<HelpCenterViewBody> {
       length: 2,
       child: Scaffold(
         backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(115.h),
-          child: Padding(
-            padding: EdgeInsets.only(
-              top: 24.h,
-              right: 24.w,
-              left: 24.w,
-            ),
+        appBar: AppBar(
+          toolbarHeight: 115.h,
+          backgroundColor: Colors.white,
+          elevation: 0,
+          automaticallyImplyLeading: false,
+          flexibleSpace: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 24.w),
             child: Column(
               children: [
-                SizedBox(height: 16.h),
-                const BackAndTitleAppBar(
-                  title: 'Help Center',
-                ),
-                SizedBox(height: 28.h),
+                SizedBox(height: MediaQuery.of(context).padding.top + 16.h),
+                const BackAndTitleAppBar(title: 'Help Center'),
+                SizedBox(height: 18.h),
                 TabBar(
                   padding: EdgeInsets.zero,
                   tabs: const [
@@ -46,7 +43,7 @@ class _HelpCenterViewBodyState extends State<HelpCenterViewBody> {
                   ],
                   labelStyle: GoogleFonts.lato(
                     fontWeight: FontWeight.w600,
-                    fontSize: 18.sp,
+                    fontSize: 16.sp,
                     color: AppColors.arrowLeft,
                     letterSpacing: 0.5,
                   ),
@@ -65,56 +62,66 @@ class _HelpCenterViewBodyState extends State<HelpCenterViewBody> {
             ),
           ),
         ),
-        body: Padding(
-          padding: EdgeInsets.only(
-            right: 24.w,
-            left: 24.w,
-          ),
-          child: TabBarView(
-            children: [
-              // FAQ Tab
-              SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: 24.h),
-                    SizedBox(
-                      height: 40.h,
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: 3,
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: EdgeInsets.only(right: 10.w),
-                            child: FAQButtons(
-                              text: [
-                                "General",
-                                "Using the App",
-                                "Notifications"
-                              ][index],
-                              isActive: selectedFaqCategory == index,
-                              onPressed: () {
-                                setState(() {
-                                  selectedFaqCategory = index;
-                                });
-                              },
+        body: SafeArea(
+          top: false,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 24.w),
+            child: TabBarView(
+              children: [
+                // FAQ Tab
+                LayoutBuilder(
+                  builder: (context, constraints) {
+                    return SingleChildScrollView(
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(
+                          minHeight: constraints.maxHeight,
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(height: 24.h),
+                            SizedBox(
+                              height: 40.h,
+                              child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: 3,
+                                itemBuilder: (context, index) {
+                                  return Padding(
+                                    padding: EdgeInsets.only(right: 10.w),
+                                    child: FAQButtons(
+                                      text: [
+                                        "General",
+                                        "Using the App",
+                                        "Notifications"
+                                      ][index],
+                                      isActive: selectedFaqCategory == index,
+                                      onPressed: () {
+                                        setState(() {
+                                          selectedFaqCategory = index;
+                                        });
+                                      },
+                                    ),
+                                  );
+                                },
+                              ),
                             ),
-                          );
-                        },
+                            SizedBox(height: 24.h),
+                            const TextFieldInsaf(),
+                            SizedBox(height: 26.h),
+                            const InsafInfoWidget(),
+                            SizedBox(height: 20.h), // Extra padding at bottom
+                          ],
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 24.h),
-                    const TextFieldInsaf(),
-                    SizedBox(height: 26.h),
-                    const InsafInfoWidget(),
-                  ],
+                    );
+                  },
                 ),
-              ),
-              // Contact Us Tab
-              const Center(
-                child: Text('Contact Us Content'),
-              ),
-            ],
+                // Contact Us Tab
+                const Center(
+                  child: Text('Contact Us Content'),
+                ),
+              ],
+            ),
           ),
         ),
       ),

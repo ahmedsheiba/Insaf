@@ -1,5 +1,10 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:insaf/core/utils/api_service.dart';
 import 'package:insaf/core/utils/app_colors.dart';
+import 'package:insaf/features/Home/data/repos/home_repo_imple.dart';
+import 'package:insaf/features/Home/presentation/view%20model/surpluses%20cubit/surpluses_cubit.dart';
 import 'package:insaf/features/Home/presentation/views/widgets/categories_grid.dart';
 import 'package:insaf/features/Home/presentation/views/widgets/custom_appbar.dart';
 import 'package:insaf/features/Home/presentation/views/widgets/offer_widget.dart';
@@ -18,7 +23,16 @@ class HomeViewBody extends StatelessWidget {
             const CustomAppBar(),
             const OfferWidget(),
             CategoriesSection(),
-            SuggestedSection(),
+            BlocProvider(
+              create: (context) => SurplusesCubit(
+                HomeRepoImplement(
+                  ApiService(
+                    Dio(),
+                  ),
+                ),
+              )..fetchSearchBooks(),
+              child: SuggestedSection(),
+            ),
           ],
         ),
       ),

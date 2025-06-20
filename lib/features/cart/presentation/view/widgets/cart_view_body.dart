@@ -42,6 +42,7 @@ class CartViewBody extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
             child: ElevatedButton(
               style: ButtonStyle(
+                padding: const WidgetStatePropertyAll(EdgeInsets.zero),
                 minimumSize: WidgetStateProperty.all(
                   Size(double.infinity, 52.h),
                 ),
@@ -60,7 +61,7 @@ class CartViewBody extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 12.w),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Column(
@@ -85,18 +86,30 @@ class CartViewBody extends StatelessWidget {
                         ),
                       ],
                     ),
+                    SizedBox(width: 4.w),
                     Text(
-                      'Check Out',
+                      'Checkout',
                       style: GoogleFonts.lato(
                         fontWeight: FontWeight.w700,
                         fontSize: 16.sp,
                         color: Colors.white,
                       ),
                     ),
-                    Icon(
-                      LucideIcons.arrowRight,
-                      size: 24.sp,
-                      color: Colors.white,
+                    SizedBox(width: 4.w),
+                    Container(
+                      width: 38.w,
+                      height: 34.h,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(3.r),
+                        ),
+                      ),
+                      child: Icon(
+                        LucideIcons.arrowRight,
+                        size: 24.sp,
+                        color: AppColors.editPenColor,
+                      ),
                     ),
                   ],
                 ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_stars/flutter_rating_stars.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:insaf/core/utils/app_colors.dart';
@@ -20,9 +19,10 @@ class ProductDetailsViewBody extends StatelessWidget {
         title: Text(
           'Product Details',
           style: GoogleFonts.rubik(
-              color: AppColors.black,
-              fontSize: 24.sp,
-              fontWeight: FontWeight.w500),
+            color: AppColors.black,
+            fontSize: 24.sp,
+            fontWeight: FontWeight.w500,
+          ),
         ),
       ),
       body: SingleChildScrollView(
