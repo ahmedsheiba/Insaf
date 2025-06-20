@@ -179,7 +179,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
 
   Widget buildSavedCardWidget() {
     // Build your saved card UI here
-    return Center(
+    return const Center(
       child: Text("Saved Card UI Placeholder"),
     );
   }

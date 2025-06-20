@@ -5,7 +5,7 @@ import 'package:insaf/core/utils/app_colors.dart';
 import 'package:insaf/features/auth%20views/presentation/views/widgets/custom_text_field.dart';
 
 class AddCardViewBody extends StatefulWidget {
-  AddCardViewBody({super.key});
+  const AddCardViewBody({super.key});
 
   @override
   State<AddCardViewBody> createState() => _AddCardViewBodyState();

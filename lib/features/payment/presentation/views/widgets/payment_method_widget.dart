@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:insaf/core/utils/app_colors.dart';
 
 class PaymentMethodWidget extends StatelessWidget {
-  PaymentMethodWidget({
+  const PaymentMethodWidget({
     super.key,
     required this.imageHeight,
     required this.imageName,
@@ -44,7 +44,7 @@ class PaymentMethodWidget extends StatelessWidget {
           ),
         ),
         Text(
-          '$paymentMethod',
+          paymentMethod,
           style: GoogleFonts.lato(
             fontSize: 14.sp,
             fontWeight: FontWeight.w400,

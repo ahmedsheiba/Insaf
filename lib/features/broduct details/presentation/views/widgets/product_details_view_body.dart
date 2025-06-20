@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_stars/flutter_rating_stars.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:insaf/core/utils/app_colors.dart';
@@ -306,7 +305,7 @@ class ProductDetailsViewBody extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(width: 12),
+                    const SizedBox(width: 12),
                     Expanded(
                       child: SizedBox(
                         height: 52.h,

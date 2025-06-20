@@ -23,7 +23,7 @@ class AddCardView extends StatelessWidget {
           ),
         ),
       ),
-      body: AddCardViewBody(),
+      body: const AddCardViewBody(),
     );
   }
 }
