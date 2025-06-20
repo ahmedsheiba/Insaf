@@ -9,6 +9,7 @@ import 'package:insaf/features/cart/presentation/view/cart_view.dart';
 import 'package:insaf/features/entry%20views/presentation/views/onboarding.dart';
 import 'package:insaf/features/entry%20views/presentation/views/splash_view.dart';
 import 'package:insaf/features/main/presentation/view/main_view.dart';
+import 'package:insaf/features/payment/presentation/views/add_card_view.dart';
 import 'package:insaf/features/payment/presentation/views/checkout_view.dart';
 import 'package:insaf/features/profile%20views/presentation/views/delete_account_view.dart';
 import 'package:insaf/features/profile%20views/presentation/views/edit_profile_view.dart';
@@ -42,6 +43,7 @@ abstract class AppRouter {
   static const kHelpCenterView = '/kHelpCenterView';
   static const kCartView = '/kCartView';
   static const kCheckoutView = '/kCheckoutView';
+  static const kAddCardView = '/kAddCardView';
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -127,6 +129,10 @@ abstract class AppRouter {
       GoRoute(
         path: kCheckoutView,
         builder: (context, state) => const CheckoutView(),
+      ),
+      GoRoute(
+        path: kAddCardView,
+        builder: (context, state) => const AddCardView(),
       ),
     ],
   );

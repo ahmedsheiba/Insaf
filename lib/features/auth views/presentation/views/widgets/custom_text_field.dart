@@ -4,16 +4,17 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:insaf/core/utils/app_colors.dart';
 
 class CustomTextField extends StatefulWidget {
-  const CustomTextField({
-    super.key,
-    this.icon,
-    this.hintText,
-    this.labelText,
-    required this.isPassword,
-    this.controller,
-    this.keyboardType,
-    this.validator,
-  });
+  const CustomTextField(
+      {super.key,
+      this.icon,
+      this.hintText,
+      this.labelText,
+      required this.isPassword,
+      this.controller,
+      this.keyboardType,
+      this.validator,
+      this.maxLength,
+      this.buildCounter});
 
   final TextInputType? keyboardType;
   final String? Function(String?)? validator;
@@ -22,6 +23,11 @@ class CustomTextField extends StatefulWidget {
   final bool isPassword;
   final String? hintText;
   final TextEditingController? controller;
+  final int? maxLength;
+  final Widget? Function(BuildContext,
+      {required int currentLength,
+      required bool isFocused,
+      required int? maxLength})? buildCounter;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -33,10 +39,12 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLength: widget.maxLength,
       validator: widget.validator,
       keyboardType: widget.keyboardType,
       controller: widget.controller,
       obscureText: widget.isPassword ? _obscureText : false,
+      buildCounter: widget.buildCounter,
       decoration: InputDecoration(
         suffixIcon: widget.isPassword
             ? IconButton(
