@@ -5,7 +5,9 @@ import 'package:image_picker/image_picker.dart';
 import 'package:insaf/core/utils/app_colors.dart';
 
 class UploadPhotoWidget extends StatefulWidget {
-  const UploadPhotoWidget({super.key});
+  final Function(File) onFileSelected;
+
+  const UploadPhotoWidget({super.key, required this.onFileSelected});
 
   @override
   _UploadPhotoWidgetState createState() => _UploadPhotoWidgetState();
@@ -19,11 +21,11 @@ class _UploadPhotoWidgetState extends State<UploadPhotoWidget> {
         await ImagePicker().pickImage(source: ImageSource.gallery);
 
     if (pickedFile != null) {
-      setState(
-        () {
-          _image = File(pickedFile.path);
-        },
-      );
+      final file = File(pickedFile.path);
+      setState(() {
+        _image = file;
+      });
+      widget.onFileSelected(file); // 🔥 ده بيرجع الصورة للي استدعى الودجت
     }
   }
 
