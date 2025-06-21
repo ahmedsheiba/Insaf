@@ -33,12 +33,13 @@ class ServerFailuer extends Failure {
         }
         return ServerFailuer(
             errorMessage: 'Unexpected Error, Please Try agin Later!');
-      }
+    }
   }
 
   factory ServerFailuer.fromResponse(int statuescode, dynamic response) {
     if (statuescode == 400 || statuescode == 401 || statuescode == 403) {
-      return ServerFailuer(errorMessage: response['error']['message']);
+      final errorMessage = response['message'] ?? 'Unknown error';
+      return ServerFailuer(errorMessage: errorMessage);
     } else if (statuescode == 404) {
       return ServerFailuer(
           errorMessage: 'Your Request Not Found, Please Try agin Later!');
@@ -47,7 +48,7 @@ class ServerFailuer extends Failure {
           errorMessage: 'Internal server Error, Please Try agin Later!');
     } else {
       return ServerFailuer(
-          errorMessage: 'Oops There Was an Error, Try agin Later.');
+          errorMessage: 'Oops There Was an Error, Try again Later.');
     }
   }
 }
