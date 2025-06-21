@@ -31,7 +31,7 @@ class HomeViewBody extends StatelessWidget {
                   ),
                 ),
               )..fetchSearchBooks(),
-              child: SuggestedSection(),
+              child: const SuggestedSection(),
             ),
           ],
         ),

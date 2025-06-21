@@ -134,7 +134,10 @@ class _LoginViewState extends State<LoginView> {
                           ],
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            GoRouter.of(context)
+                                .push(AppRouter.kResetPasswordView);
+                          },
                           child: Text(
                             "Forget Password?",
                             style: GoogleFonts.lato(

@@ -56,7 +56,7 @@ class _SplashViewState extends State<SplashView>
             baseColor: AppColors.primary, // Dark Green
             highlightColor: AppColors.secondary, // Light Green
             child: Image.asset(
-              "assets/logos/insaf_logo.png",
+              'assets/logos/insaf_logo.png',
               height: 127.61063385009766.h,
               width: 101.28026580810547.w,
             ),

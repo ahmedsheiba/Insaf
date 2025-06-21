@@ -55,7 +55,8 @@ class _CharityCreateAccountViewState extends State<CharityCreateAccountView> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const VerifyEmailView(),
+                builder: (context) =>
+                    VerifyEmailView(email: emailController.text.trim()),
               ),
             );
           } else if (state is RegisterFailure) {

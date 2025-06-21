@@ -1,15 +1,17 @@
-import 'dart:developer';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:insaf/core/utils/app_colors.dart';
 import 'package:insaf/core/widgets/custom_button.dart';
+import 'package:insaf/features/auth%20views/presentation/view_model/cubit/reset_password_cubit.dart';
+import 'package:insaf/features/auth%20views/presentation/views/reset_verify_email.dart';
 import 'package:insaf/features/auth%20views/presentation/views/widgets/custom_text_field.dart';
-import 'package:insaf/features/auth%20views/presentation/views/verify_email.dart';
 
 class ResetPasswordView extends StatefulWidget {
-  const ResetPasswordView({super.key});
+  const ResetPasswordView({super.key, this.email});
+  final String? email;
 
   @override
   State<ResetPasswordView> createState() => _ResetPasswordViewState();
@@ -20,15 +22,28 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
+  void initState() {
+    super.initState();
+    emailController.addListener(() {
+      setState(() {});
+    });
+  }
+
+  bool get isEmailValid => EmailValidator.validate(emailController.text.trim());
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: AppColors.white,
+      appBar: AppBar(
+        backgroundColor: AppColors.white,
+        scrolledUnderElevation: 0,
+      ),
       body: Padding(
         padding: EdgeInsets.all(24.h),
         child: Form(
           key: formKey,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
@@ -39,6 +54,7 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
                   color: AppColors.secondary,
                 ),
               ),
+              SizedBox(height: 8.h),
               Text(
                 "Enter your user account's verified email address and we will send you a password reset link.",
                 style: GoogleFonts.lato(
@@ -67,32 +83,59 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
                   if (!EmailValidator.validate(value)) {
                     return "Enter a valid email";
                   }
-                  return null; // This indicates validation is successful
+                  return null;
                 },
               ),
-              SizedBox(height: 16.h),
-              CustomButton(
-                onTap: () {
-                  if (formKey.currentState!.validate()) {
-                    log('Success');
-                    emailController.clear();
-
+              const Spacer(),
+              BlocConsumer<ResetPasswordCubit, ResetPasswordState>(
+                listener: (context, state) {
+                  if (state is ResetPasswordSuccess) {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const VerifyEmailView(),
+                        builder: (context) => ResetVerifyEmailView(
+                          email: emailController.text.trim(),
+                        ),
                       ),
+                    );
+                  } else if (state is ResetPasswordFailure) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text(state.errorMessage)),
                     );
                   }
                 },
-                text: 'Verify',
-                textColor: AppColors.verifyColor,
-                color: AppColors.primary,
+                builder: (context, state) {
+                  return CustomButton(
+                    onTap: isEmailValid && state is! ResetPasswordLoading
+                        ? () {
+                            if (formKey.currentState!.validate()) {
+                              final email = emailController.text.trim();
+                              context
+                                  .read<ResetPasswordCubit>()
+                                  .sendResetCode(email: email);
+                            }
+                          }
+                        : null,
+                    text: state is ResetPasswordLoading
+                        ? 'Sending...'
+                        : 'Send Password Reset link',
+                    textColor:
+                        isEmailValid ? AppColors.white : AppColors.verifyColor,
+                    color:
+                        isEmailValid ? AppColors.primary : AppColors.verifyGrey,
+                  );
+                },
               ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    super.dispose();
   }
 }

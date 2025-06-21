@@ -10,8 +10,8 @@ import 'package:insaf/features/auth%20views/presentation/views/charity/charity_a
 import 'package:pinput/pinput.dart';
 
 class VerifyEmailView extends StatefulWidget {
-  const VerifyEmailView({super.key});
-
+  const VerifyEmailView({super.key, required this.email});
+  final String email;
   @override
   State<VerifyEmailView> createState() => _VerifyEmailViewState();
 }
@@ -146,8 +146,7 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
                           state is! VerifyEmailLoading
                       ? () {
                           context.read<VerifyEmailCubit>().verifyEmail(
-                                email:
-                                    "a@s.b", // Replace with actual email from registration
+                                email: widget.email,
                                 code: _otpController.text,
                               );
                         }

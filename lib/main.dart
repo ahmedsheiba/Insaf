@@ -6,6 +6,8 @@ import 'package:insaf/core/utils/api_service.dart';
 import 'package:dio/dio.dart';
 import 'package:insaf/features/auth%20views/data/repos/auth_repo_impl.dart';
 import 'package:insaf/features/auth%20views/presentation/view_model/cubit/login_cubit.dart';
+import 'package:insaf/features/auth%20views/presentation/view_model/cubit/reset_password_cubit.dart';
+import 'package:insaf/features/auth%20views/presentation/view_model/cubit/reset_verify_email_cubit.dart';
 import 'package:insaf/features/auth%20views/presentation/view_model/cubit/verify_email_cubit.dart';
 import 'package:insaf/features/auth%20views/presentation/view_model/register/cubit/register_cubit.dart';
 
@@ -30,6 +32,7 @@ class Insaf extends StatelessWidget {
             BlocProvider(create: (_) => RegisterCubit(authRepo)),
             BlocProvider(create: (_) => LoginCubit(authRepo)),
             BlocProvider(create: (_) => VerifyEmailCubit(authRepo)),
+            BlocProvider(create: (_) => ResetPasswordCubit(authRepo)),
           ],
           child: MaterialApp.router(
             routerConfig: AppRouter.router,

@@ -49,6 +49,7 @@ class AuthRepoImplement extends AuthRepo {
     }
   }
 
+  @override
   Future<Either<Failure, String>> supplierRegister(
       String name,
       String email,
@@ -90,6 +91,7 @@ class AuthRepoImplement extends AuthRepo {
     }
   }
 
+  @override
   Future<Either<Failure, LoginResponse>> charityLogin(
       String email, String password) async {
     try {
@@ -136,6 +138,51 @@ class AuthRepoImplement extends AuthRepo {
         return left(ServerFailuer.fromDioException(e));
       }
       return left(ServerFailuer(errorMessage: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<String, String>> sendResetCode({required String email}) async {
+    try {
+      final response = await apiService.post(
+        endPoint: 'forget-password',
+        data: {"email": email},
+      );
+
+      if (response['success'] == true) {
+        return right(response['message']);
+      } else {
+        return left(response['message'] ?? 'Unknown error');
+      }
+    } catch (e) {
+      return left('Something went wrong');
+    }
+  }
+
+  @override
+  Future<Either<Failure, String>> resetPassword({
+    required String email,
+    required String code,
+    required String newPassword,
+  }) async {
+    try {
+      final response = await apiService.post(
+        endPoint: 'reset-password',
+        data: {
+          "email": email,
+          "code": code,
+          "password": newPassword,
+        },
+      );
+
+      if (response['success'] == true) {
+        return right(response['message']);
+      } else {
+        return left(
+            Failure(errorMessage: response['message'] ?? 'Reset failed'));
+      }
+    } catch (e) {
+      return left(Failure(errorMessage: 'Something went wrong'));
     }
   }
 }

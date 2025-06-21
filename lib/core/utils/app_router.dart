@@ -2,6 +2,9 @@ import 'package:go_router/go_router.dart';
 import 'package:insaf/features/Home/presentation/views/home_view.dart';
 import 'package:insaf/features/auth%20views/presentation/views/charity/create_account.dart';
 import 'package:insaf/features/auth%20views/presentation/views/login_view.dart';
+import 'package:insaf/features/auth%20views/presentation/views/new_password_view.dart';
+import 'package:insaf/features/auth%20views/presentation/views/reset_password.dart';
+import 'package:insaf/features/auth%20views/presentation/views/reset_verify_email.dart';
 import 'package:insaf/features/auth%20views/presentation/views/seller/create_account_seller.dart';
 import 'package:insaf/features/auth%20views/presentation/views/welcome_view.dart';
 import 'package:insaf/features/broduct%20details/presentation/views/broduct_details.dart';
@@ -44,6 +47,10 @@ abstract class AppRouter {
   static const kCartView = '/kCartView';
   static const kCheckoutView = '/kCheckoutView';
   static const kAddCardView = '/kAddCardView';
+  static const kResetPasswordView = '/kResetPasswordView';
+  static const kResetVerifyEmailView = '/kResetVerifyEmailView';
+  static const kNewPasswordView = '/kNewPasswordView';
+
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -133,6 +140,18 @@ abstract class AppRouter {
       GoRoute(
         path: kAddCardView,
         builder: (context, state) => const AddCardView(),
+      ),
+      GoRoute(
+        path: kResetPasswordView,
+        builder: (context, state) => const ResetPasswordView(),
+      ),
+      GoRoute(
+        path: kResetVerifyEmailView,
+        builder: (context, state) => const ResetVerifyEmailView(),
+      ),
+      GoRoute(
+        path: kNewPasswordView,
+        builder: (context, state) => const NewPasswordView(),
       ),
     ],
   );
