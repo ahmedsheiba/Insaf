@@ -7,7 +7,6 @@ import 'package:dio/dio.dart';
 import 'package:insaf/features/auth%20views/data/repos/auth_repo_impl.dart';
 import 'package:insaf/features/auth%20views/presentation/view_model/cubit/login_cubit.dart';
 import 'package:insaf/features/auth%20views/presentation/view_model/cubit/reset_password_cubit.dart';
-import 'package:insaf/features/auth%20views/presentation/view_model/cubit/reset_verify_email_cubit.dart';
 import 'package:insaf/features/auth%20views/presentation/view_model/cubit/verify_email_cubit.dart';
 import 'package:insaf/features/auth%20views/presentation/view_model/register/cubit/register_cubit.dart';
 

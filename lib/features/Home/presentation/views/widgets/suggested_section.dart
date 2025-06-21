@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_rating_stars/flutter_rating_stars.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:insaf/constants.dart';
 import 'package:insaf/core/utils/app_colors.dart';
 import 'package:insaf/features/Home/presentation/view%20model/surpluses%20cubit/surpluses_cubit.dart';
 
@@ -67,8 +67,9 @@ class SuggestedSection extends StatelessWidget {
                               ),
                             ),
                             child: Image.asset(
-                              'assets/logos/product2.png',
+                              images[index],
                               fit: BoxFit.cover,
+                              height: 110.h,
                             ),
                           ),
                           Padding(
@@ -110,27 +111,6 @@ class SuggestedSection extends StatelessWidget {
                                 ),
                                 SizedBox(
                                   height: 6.h,
-                                ),
-                                Row(
-                                  children: [
-                                    RatingStars(
-                                      value: 3.7,
-                                      valueLabelVisibility: false,
-                                      starColor: AppColors.starRate,
-                                      starSize: 14.r,
-                                    ),
-                                    SizedBox(
-                                      width: 4.w,
-                                    ),
-                                    Text(
-                                      '(124)',
-                                      style: GoogleFonts.lato(
-                                        color: AppColors.textRate,
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 10.sp,
-                                      ),
-                                    ),
-                                  ],
                                 ),
                               ],
                             ),

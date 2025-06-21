@@ -13,6 +13,5 @@ class ResetVerifyEmailFailure extends ResetVerifyEmailState {
   final String errorMessage;
   ResetVerifyEmailFailure({required this.errorMessage});
 
-  @override
   List<Object> get props => [errorMessage];
 }

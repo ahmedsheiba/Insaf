@@ -19,7 +19,7 @@ class _CategoriesButtonsState extends State<CategoriesButtons> {
     return Wrap(
       spacing: 10.w,
       runSpacing: 10.h,
-      children: categories.asMap().entries.map(
+      children: categoriesLabelsOnly.asMap().entries.map(
         (entry) {
           int index = entry.key;
           String category = entry.value;
