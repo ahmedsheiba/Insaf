@@ -5,9 +5,20 @@ import 'package:insaf/core/utils/app_colors.dart';
 import 'package:insaf/features/broduct%20details/presentation/views/widgets/cart_bottomsheet.dart';
 
 class ProductDetailsViewBody extends StatelessWidget {
-  ProductDetailsViewBody({super.key});
+  ProductDetailsViewBody({
+    super.key,
+    required this.name,
+    required this.description,
+    required this.price,
+    required this.image,
+  });
 
   final TextEditingController qtyController = TextEditingController(text: '1');
+
+  final String name;
+  final String description;
+  final num price;
+  final String image;
 
   @override
   Widget build(BuildContext context) {
@@ -32,12 +43,12 @@ class ProductDetailsViewBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Image.asset(
-                'assets/logos/product.png',
+                image,
                 width: 345.w,
                 height: 153.h,
               ),
               Text(
-                'Plant Based Tuna',
+                name,
                 style: GoogleFonts.lato(
                     color: AppColors.black,
                     fontSize: 20.sp,
@@ -47,7 +58,7 @@ class ProductDetailsViewBody extends StatelessWidget {
                 height: 14.h,
               ),
               Text(
-                'EGP 64',
+                'EGP $price',
                 style: GoogleFonts.lato(
                   color: AppColors.primary,
                   fontWeight: FontWeight.w600,
@@ -55,7 +66,7 @@ class ProductDetailsViewBody extends StatelessWidget {
                 ),
               ),
               Text(
-                'A delicious and sustainable alternative to traditional tuna, made entirely from plant-based ingredients. Rich in protein and omega-3 fatty acids, .. Read more',
+                description,
                 style: GoogleFonts.lato(
                   color: AppColors.cursor,
                   fontWeight: FontWeight.w400,

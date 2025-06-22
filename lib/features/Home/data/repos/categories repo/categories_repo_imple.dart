@@ -3,23 +3,24 @@ import 'package:dio/dio.dart';
 import 'package:insaf/core/errors/failures.dart';
 import 'package:insaf/core/models/surplus_model.dart';
 import 'package:insaf/core/utils/api_service.dart';
-import 'package:insaf/features/Home/data/repos/home_repo.dart';
+import 'package:insaf/features/Home/data/repos/categories%20repo/categories_repo.dart';
 
-class HomeRepoImplement extends HomeRepo {
+class CategoriesRepoImplement extends CategoriesRepo {
   final ApiService apiService;
 
-  HomeRepoImplement(this.apiService);
+  CategoriesRepoImplement(this.apiService);
 
   @override
-  Future<Either<Failure, List<SurplusModel>>> fetchSurplusItems() async {
+  Future<Either<Failure, List<SurplusModel>>> fetchSurplusesByCate(
+      int catNum) async {
     try {
       var data = await apiService.get(
-        endPoint: 'surpluses',
+        endPoint: 'categories/$catNum',
       );
 
       List<SurplusModel> surpluses = [];
 
-      for (var surplus in data['data']['surpluses']) {
+      for (var surplus in data['data']['surpluses']['surpluses']) {
         surpluses.add(SurplusModel.fromJson(surplus));
       }
       return right(surpluses);

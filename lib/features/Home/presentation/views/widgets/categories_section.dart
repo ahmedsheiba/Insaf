@@ -1,44 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:insaf/constants.dart';
 import 'package:insaf/core/utils/app_colors.dart';
 import 'package:insaf/features/Home/presentation/views/category_view.dart';
 
 class CategoriesSection extends StatelessWidget {
-  final List<Map<String, dynamic>> categories = [
-    {
-      "title": "Canned Products",
-      "image": 'assets/logos/CannedFood.png',
-      "color": AppColors.cat1,
-    },
-    {
-      "title": "Bakery Products",
-      "image": 'assets/logos/Bakery.png',
-      "color": AppColors.cat2,
-    },
-    {
-      "title": "Frozen Meat",
-      "image": 'assets/logos/Frozen_Meat.png',
-      "color": AppColors.cat3,
-    },
-    {
-      "title": "Cooked Food",
-      "image": 'assets/logos/Cooked.png',
-      "color": AppColors.cat2,
-    },
-    {
-      "title": "Drinks",
-      "image": 'assets/logos/Drinks.png',
-      "color": AppColors.cat3,
-    },
-    {
-      "title": "Cakes",
-      "image": 'assets/logos/Cakes.png',
-      "color": AppColors.cat1,
-    },
-  ];
 
-  CategoriesSection({super.key});
+
+  const CategoriesSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +58,7 @@ class CategoriesSection extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) =>
-                          CategoryPage(category: item['title']),
+                          CategoryView(category: item['title']),
                     ),
                   );
                 },
