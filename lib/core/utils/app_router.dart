@@ -1,5 +1,12 @@
+import 'package:dio/dio.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:insaf/core/utils/api_service.dart';
 import 'package:insaf/features/Home/presentation/views/home_view.dart';
+import 'package:insaf/features/auth%20views/data/repos/auth_repo.dart';
+import 'package:insaf/features/auth%20views/data/repos/auth_repo_impl.dart';
+import 'package:insaf/features/auth%20views/presentation/view_model/cubit/reset_password_cubit.dart';
+import 'package:insaf/features/auth%20views/presentation/view_model/cubit/reset_verify_email_cubit.dart';
 import 'package:insaf/features/auth%20views/presentation/views/charity/create_account.dart';
 import 'package:insaf/features/auth%20views/presentation/views/login_view.dart';
 import 'package:insaf/features/auth%20views/presentation/views/new_password_view.dart';
@@ -147,11 +154,30 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kResetVerifyEmailView,
-        builder: (context, state) => const ResetVerifyEmailView(),
+        builder: (context, state) {
+          return BlocProvider(
+            create: (context) => ResetVerifyEmailCubit(
+              AuthRepoImplement(ApiService(Dio())),
+            ),
+            child: ResetVerifyEmailView(
+              email: state.extra as String?,
+            ),
+          );
+        },
       ),
       GoRoute(
-        path: kNewPasswordView,
-        builder: (context, state) => const NewPasswordView(),
+        path: AppRouter.kNewPasswordView,
+        builder: (context, state) {
+          final data = state.extra as Map<String, dynamic>;
+          return BlocProvider(
+            create: (context) =>
+                ResetPasswordCubit(AuthRepoImplement(ApiService(Dio()))),
+            child: NewPasswordView(
+              email: data['email'],
+              code: data['code'],
+            ),
+          );
+        },
       ),
     ],
   );

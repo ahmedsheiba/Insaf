@@ -20,6 +20,7 @@ class ResetVerifyEmailView extends StatefulWidget {
 
 class _ResetVerifyEmailViewState extends State<ResetVerifyEmailView> {
   final TextEditingController _otpController = TextEditingController();
+
   late PinTheme defaultPinTheme;
   late PinTheme focusedPinTheme;
 
@@ -69,7 +70,10 @@ class _ResetVerifyEmailViewState extends State<ResetVerifyEmailView> {
           child: BlocConsumer<ResetVerifyEmailCubit, ResetVerifyEmailState>(
             listener: (context, state) {
               if (state is ResetVerifyEmailSuccess) {
-                GoRouter.of(context).push(AppRouter.kNewPasswordView);
+                GoRouter.of(context).push(AppRouter.kNewPasswordView, extra: {
+                  'email': widget.email,
+                  'code': _otpController.text,
+                });
               } else if (state is ResetVerifyEmailFailure) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(

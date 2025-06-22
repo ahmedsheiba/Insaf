@@ -20,6 +20,7 @@ class ResetPasswordView extends StatefulWidget {
 class _ResetPasswordViewState extends State<ResetPasswordView> {
   final TextEditingController emailController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final TextEditingController _otpController = TextEditingController();
 
   @override
   void initState() {
@@ -110,9 +111,10 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
                         ? () {
                             if (formKey.currentState!.validate()) {
                               final email = emailController.text.trim();
+                              final code = _otpController.text;
                               context
                                   .read<ResetPasswordCubit>()
-                                  .sendResetCode(email: email);
+                                  .sendResetCode(email: email, code: code);
                             }
                           }
                         : null,

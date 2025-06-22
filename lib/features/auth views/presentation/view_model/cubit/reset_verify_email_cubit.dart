@@ -11,12 +11,16 @@ class ResetVerifyEmailCubit extends Cubit<ResetVerifyEmailState> {
   Future<void> verifyResetCode(
       {required String email, required String code}) async {
     emit(ResetVerifyEmailLoading());
-    final result = await authRepo.verifyEmail(email: email, code: code);
-
-    result.fold(
-      (failure) =>
-          emit(ResetVerifyEmailFailure(errorMessage: failure.errorMessage)),
-      (_) => emit(ResetVerifyEmailSuccess()),
-    );
+    try {
+      final result = await authRepo.sendResetCode(email: email, code: code);
+      result.fold(
+        (failure) => emit(ResetVerifyEmailFailure(errorMessage: failure)),
+        (successMessage) {
+          emit(ResetVerifyEmailSuccess(email: email, code: code));
+        },
+      );
+    } catch (e) {
+      emit(ResetVerifyEmailFailure(errorMessage: "Unexpected error occurred."));
+    }
   }
 }

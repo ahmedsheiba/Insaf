@@ -33,6 +33,7 @@ class Insaf extends StatelessWidget {
             BlocProvider(create: (_) => LoginCubit(authRepo)),
             BlocProvider(create: (_) => VerifyEmailCubit(authRepo)),
             BlocProvider(create: (_) => ResetPasswordCubit(authRepo)),
+            BlocProvider(create: (_) => ResetVerifyEmailCubit(authRepo)),
           ],
           child: MaterialApp.router(
             routerConfig: AppRouter.router,

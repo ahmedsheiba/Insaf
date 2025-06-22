@@ -32,10 +32,13 @@ abstract class AuthRepo {
 
   Future<Either<String, String>> sendResetCode({
     required String email,
+    required String code,
   });
+
   Future<Either<Failure, String>> resetPassword({
     required String email,
     required String code,
     required String newPassword,
+    required String passwordConfirmation,
   });
 }

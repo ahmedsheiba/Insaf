@@ -142,11 +142,15 @@ class AuthRepoImplement extends AuthRepo {
   }
 
   @override
-  Future<Either<String, String>> sendResetCode({required String email}) async {
+  Future<Either<String, String>> sendResetCode(
+      {required String email, required String code}) async {
     try {
       final response = await apiService.post(
         endPoint: 'forget-password',
-        data: {"email": email},
+        data: {
+          "email": email,
+          'code': code,
+        },
       );
 
       if (response['success'] == true) {
@@ -160,18 +164,19 @@ class AuthRepoImplement extends AuthRepo {
   }
 
   @override
-  Future<Either<Failure, String>> resetPassword({
-    required String email,
-    required String code,
-    required String newPassword,
-  }) async {
+  Future<Either<Failure, String>> resetPassword(
+      {required String email,
+      required String code,
+      required String newPassword,
+      required String passwordConfirmation}) async {
     try {
       final response = await apiService.post(
         endPoint: 'reset-password',
         data: {
-          "email": email,
           "code": code,
           "password": newPassword,
+          "password_confirmation": passwordConfirmation,
+          "email": email,
         },
       );
 
@@ -182,6 +187,7 @@ class AuthRepoImplement extends AuthRepo {
             Failure(errorMessage: response['message'] ?? 'Reset failed'));
       }
     } catch (e) {
+      print('Reset Password Error: $e');
       return left(Failure(errorMessage: 'Something went wrong'));
     }
   }
